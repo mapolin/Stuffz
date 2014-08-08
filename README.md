@@ -30,12 +30,9 @@
 ```
 @element -> jQuery(element)
 @classes -> 
-```
-    * classes: 
-    ```
     [string, string] 
     [obj, obj, ..., obj] -> obj = {on: string, off: string}
-    ```
+```
  * .parse
    * .date(date)
    ```
