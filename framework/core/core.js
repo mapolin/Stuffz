@@ -157,12 +157,12 @@ var _FRAMEWORK_NAME = 'EKApp';
             element = element;
             if( element.length == 0 ) return;
 
-            if( this.is(classes, 'string') || classes.length < 2 ) element.removeClass( ((classes.splice) ? classes[0] : classes) );
-            else if( !this.is(classes, 'string') && classes.length == 2) element.removeClass( classes[0] ).addClass( classes[1] );
+            if( _FRWK.is(classes, 'string') || classes.length < 2 ) element.removeClass( ((classes.splice) ? classes[0] : classes) );
+            else if( !_FRWK.is(classes, 'string') && classes.length == 2) element.removeClass( classes[0] ).addClass( classes[1] );
             else {
                 for( var i = 0, len = classes.length; i < len; i++ ) {
                     if( classes[i].on && classes[i].off ) {
-                        this.ClassUtil.swap(element, [classes[i].on, classes[i].off]);
+                        this.swap(element, [classes[i].on, classes[i].off]);
                     }
                 }
             }
