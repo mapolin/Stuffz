@@ -5,7 +5,7 @@ var Cufon = Cufon || {refresh: function(){}, now: function(){}};
     @default: Framework
 */
 
-var _FRAMEWORK_NAME = 'EKApp'; 
+var _FRAMEWORK_NAME = 'Framework'; 
 
 (function(_name) {
 
@@ -187,6 +187,31 @@ var _FRAMEWORK_NAME = 'EKApp';
             }
             
             return false;
+        }
+    });
+
+    _FRWK.Extend('Debug', {
+        _DEBUG: false,
+        enable: function() {
+            this._DEBUG = true;
+        },
+        disable: function() {
+            this._DEBUG = false;
+        },
+        log: function() {
+            if(this._DEBUG && console) {
+                console.log.call(this, Array.prototype.slice.apply(arguments));
+            }
+        },
+        warn: function() {
+            if(this._DEBUG && console) {
+                console.warn.call(this, Array.prototype.slice.apply(arguments));
+            }
+        },
+        error: function() {
+            if(this._DEBUG && console) {
+                console.error.call(this, Array.prototype.slice.apply(arguments));
+            }
         }
     });
 
