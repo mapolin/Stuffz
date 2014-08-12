@@ -51,7 +51,7 @@ var _FRAMEWORK_NAME = 'Framework';
                 var member = name.split(':')[0];
                 name = name.split(':')[1];
             }
-            
+
             if( (this[name] && !overwrite) || (this[member] && !overwrite) ) {
                 if(member) {
                     if(this[member][name]) {
@@ -59,11 +59,16 @@ var _FRAMEWORK_NAME = 'Framework';
                     }
                     
                     if(typeof this[member] == 'function') {
-                        throw '' + _CORE + '[ ' + member + ' ] is a Function and Methods can not be added to it. If you want to change it use: ' + _CORE + '.Extend(name, fn, overwrite).';
+                        throw '' + _CORE + '[ ' + member + ' ] is a Function and Methods can not be added to it. If you want to change it use: ' + _CORE + '.Extend(name, fn, overwrite, save).';
                     }
                 } else {
-                    throw 'Function ' + name + ' already exists. Please change it or specify if you want to overwrite it using ' + _CORE + '.Extend(name, fn, overwrite).';
+                    throw 'Function ' + name + ' already exists. Please change it or specify if you want to overwrite it using ' + _CORE + '.Extend(name, fn, overwrite, save).';
                 }
+            }
+
+            if (this[name] && overwrite && save) {
+                this['_' + name] = this[name];
+                console.warn('Method [' + name +'] was overwritten and a copy was saved as: ' + _CORE + '[_' + name + '].');
             }
 
             if(member && !this[member]) {
