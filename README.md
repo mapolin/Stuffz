@@ -10,8 +10,8 @@
 @save -> If @name exits, save a copy called '_name'
 @return -> Newly created/overwritten method
 ```
+###Extending the framework:
 ```
-#Extending the framework:
 Framework.Extend('Object', {}); -> produces Framework.Object
 Framework.Extend('Object:Method', {}) -> adds 'Method' to Framework.Object, producing Framework.Object.Method
 Framework.Extend('Object', 'hello', true) -> overwrites previously created Object {} with 'hello'
